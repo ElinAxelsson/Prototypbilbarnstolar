@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitta Vänner i Närheten</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            color: #0073e6;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .friends-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .friend {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .friend strong {
+            color: #333;
+        }
+        .friend span {
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+    <script>
+        // Exempelvänner att visa
+        const friends = [
+            { name: "Anna", distance: "0.5 km" },
+            { name: "Erik", distance: "1.2 km" },
+            { name: "Sofia", distance: "2.8 km" }
+        ];
+
+        function showFriends() {
+            const list = document.querySelector('.friends-list');
+            list.innerHTML = ""; // Rensa listan
+            friends.forEach(friend => {
+                const div = document.createElement('div');
+                div.className = 'friend';
+                div.innerHTML = `<strong>${friend.name}</strong> <span>${friend.distance} bort</span>`;
+                list.appendChild(div);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hitta Vänner i Närheten</h1>
+        <p>Tryck på knappen för att se vänner nära dig!</p>
+        <button onclick="showFriends()">Visa Vänner</button>
+        <div class="friends-list"></div>
+    </div>
+</body>
+</html>

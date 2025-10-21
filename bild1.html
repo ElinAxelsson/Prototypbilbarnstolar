@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sälj Din Bilbarnstol</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .ads {
+            margin-top: 30px;
+        }
+        .ad {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .ad h3 {
+            margin: 0 0 5px;
+        }
+        .ad p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sälj Din Bilbarnstol</h1>
+    </header>
+
+    <main>
+        <h2>Lägg upp en annons</h2>
+        <form>
+            <label for="title">Titel på annons</label>
+            <input type="text" id="title" name="title" placeholder="Ange en titel, t.ex. 'Bilbarnstol Britax Römer'">
+
+            <label for="price">Pris</label>
+            <input type="text" id="price" name="price" placeholder="Ange pris i SEK">
+
+            <label for="description">Beskrivning</label>
+            <textarea id="description" name="description" rows="4" placeholder="Beskriv bilbarnstolen, skick, färg, etc."></textarea>
+
+            <label for="contact">Kontaktuppgifter</label>
+            <input type="text" id="contact" name="contact" placeholder="Ange din e-post eller telefonnummer">
+
+            <button type="submit">Lägg upp annons</button>
+        </form>
+
+        <div class="ads">
+            <h2>Senaste annonser</h2>
+            <div class="ad">
+                <h3>Bilbarnstol Maxi-Cosi (500 kr)</h3>
+                <p>En välvårdad bilbarnstol i svart. Passar barn från 9 månader till 4 år.</p>
+                <p><strong>Kontakt:</strong> example@example.com</p>
+            </div>
+            <div class="ad">
+                <h3>Britax Römer i blått (800 kr)</h3>
+                <p>Fint skick med justerbara remmar. Aldrig varit med i en olycka.</p>
+                <p><strong>Kontakt:</strong> +46 70 123 45 67</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
