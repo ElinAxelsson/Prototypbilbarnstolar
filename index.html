@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildkarusell med Effekter</title>
+<style>
+/* Grundläggande styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Menyknapp och dropdown */
+.navbar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Bildkarusell */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    width: 300%;
+    animation: rotate 20s infinite;
+}
+
+.carousel-images img {
+    width: 33.33%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes rotate {
+    0% { transform: translateX(0); }
+    33.33% { transform: translateX(-33.33%); }
+    66.66% { transform: translateX(-66.66%); }
+    100% { transform: translateX(0); }
+}
+
+/* Galleri med effekter */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.effect-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    border-radius: 100%;
+    border-style: solid;
+    border-color: gray;
+    box-shadow: 0.02em 0.02em 0.8em 0.02em gray;
+}
+
+.effect-image:hover {
+    transform: scale(1.03);
+    filter: brightness(1.2);
+}
+
+.effect-image:active {
+    filter: brightness(0.8);
+}
+</style>
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-images img');
+    const totalImages = images.length;
+
+    function moveCarousel() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        const offset = -100 * currentIndex;
+        document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+    }
+
+    setInterval(moveCarousel, 3000);
+</script>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="dropdown">
+            <button class="dropdown-button">Meny</button>
+            <div class="dropdown-content">
+                <a href="register.html">Registrera dig</a>
+                <a href="login.html">Logga in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="clouds.png" alt="Bild 1">
+            <img src="beach.jpg" alt="Bild 2">
+            <img src="Spelkväll.jpg" alt="Bild 3">
+        </div>
+    </div>
+    
+    <div class="image-gallery">
+        <figure>
+            <a href="bild1.html">
+                <img src="clouds.png" alt="Bild 1" class="effect-image">
+            </a>
+            <figcaption>Lägg upp en annons/Köp begagnad bilbarnstol</figcaption>
+        </figure>
+        <figure>
+            <a href="bild2.html">
+                <img src="beach.jpg" alt="Bild 2" class="effect-image">
+            </a>
+            <figcaption>Hitta vänner</figcaption>
+        </figure>
+        <figure>
+            <a href="bild3.html">
+                <img src="Spelkväll.jpg" alt="Bild 3" class="effect-image">
+            </a>
+            <figcaption>Kontaka oss</figcaption>
+        </figure>
+    </div>
+    
+    <div class="image-gallery">
+        <figure>
+            <a href="bild1.html">
+                <img src="clouds.png" alt="Bild 1" class="effect-image">
+            </a>
+            <figcaption>Lägg upp en annons/Köp begagnad bilbarnstol</figcaption>
+        </figure>
+        <figure>
+            <a href="bild2.html">
+                <img src="beach.jpg" alt="Bild 2" class="effect-image">
+            </a>
+            <figcaption>Hitta vänner</figcaption>
+        </figure>
+        <figure>
+            <a href="bild3.html">
+                <img src="Spelkväll.jpg" alt="Bild 3" class="effect-image">
+            </a>
+            <figcaption>Kontaka oss</figcaption>
+        </figure>
+    </div>
+    
+    <div class="image-gallery">
+        <figure>
+            <a href="bild1.html">
+                <img src="clouds.png" alt="Bild 1" class="effect-image">
+            </a>
+            <figcaption>Lägg upp en annons/Köp begagnad bilbarnstol</figcaption>
+        </figure>
+        <figure>
+            <a href="bild2.html">
+                <img src="beach.jpg" alt="Bild 2" class="effect-image">
+            </a>
+            <figcaption>Hitta vänner</figcaption>
+        </figure>
+        <figure>
+            <a href="bild3.html">
+                <img src="Spelkväll.jpg" alt="Bild 3" class="effect-image">
+            </a>
+            <figcaption>Kontaka oss</figcaption>
+        </figure>
+    </div>
+
+</body>
+</html>
