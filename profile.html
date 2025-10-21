@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Profil</title>
+    <script>
+        function loadProfile() {
+            const user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (!user) {
+                alert('Du måste vara inloggad!');
+                window.location.href = 'login.html';
+            } else {
+                document.getElementById('welcome').innerText = `Välkommen, ${user.username}!`;
+            }
+        }
+
+        function searchFriends() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const results = users.filter(user => user.username.toLowerCase().includes(searchTerm));
+
+            const resultsList = document.getElementById('results');
+            resultsList.innerHTML = '';
+            results.forEach(user => {
+                const listItem = document.createElement('li');
+                listItem.textContent = user.username;
+                resultsList.appendChild(listItem);
+            });
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedInUser');
+            alert('Du har loggat ut!');
+            window.location.href = 'index.html';
+        }
+    </script>
+</head>
+<body onload="loadProfile()">
+    <h1 id="welcome">Min Profil</h1>
+    <button onclick="logout()">Logga ut</button>
+    <h2>Sök efter vänner</h2>
+    <input type="text" id="search" placeholder="Användarnamn">
+    <button onclick="searchFriends()">Sök</button>
+    <ul id="results"></ul>
+</body>
+</html>
